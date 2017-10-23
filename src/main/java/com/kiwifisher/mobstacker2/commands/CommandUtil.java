@@ -20,7 +20,7 @@ public class CommandUtil {
     public static LivingEntity getNearestEntityInSight(Player player, int range) {
 
         ArrayList<Entity> entities = (ArrayList<Entity>) player.getNearbyEntities(range, range, range);
-        ArrayList<Block> sightBlock = (ArrayList<Block>) player.getLineOfSight( (Set<Material>) null, range);
+        ArrayList<Block> sightBlock = (ArrayList<Block>) player.getLineOfSight((Set<Material>) null, range);
 
         ArrayList<Location> sight = new ArrayList<>();
 
@@ -116,9 +116,9 @@ public class CommandUtil {
 
             Settings.BLACKLISTED_REGIONS.clear();
 
-            while((currentLine = reader.readLine()) != null) {
+            while ((currentLine = reader.readLine()) != null) {
                 String trimmedLine = currentLine.trim();
-                if(trimmedLine.equalsIgnoreCase(regionID)) {
+                if (trimmedLine.equalsIgnoreCase(regionID)) {
                     Settings.BLACKLISTED_REGIONS.remove(trimmedLine);
                     wasRemoved = true;
                     continue;

@@ -14,6 +14,10 @@ import java.util.List;
 public final class EmptyAlgorithm extends LootAlgorithm {
 
     private static EmptyAlgorithm instance;
+    private final List<ItemStack> loot = ImmutableList.of();
+
+    private EmptyAlgorithm() {
+    }
 
     protected static EmptyAlgorithm getInstance() {
         if (instance == null) {
@@ -21,10 +25,6 @@ public final class EmptyAlgorithm extends LootAlgorithm {
         }
         return instance;
     }
-
-    private EmptyAlgorithm() {}
-
-    private final List<ItemStack> loot = ImmutableList.of();
 
     @Override
     public int getExp(Entity entity, int numberOfMobs) {

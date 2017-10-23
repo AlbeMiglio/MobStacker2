@@ -17,6 +17,7 @@ public class MetaTags {
 
     /**
      * Adds the appropriate meta tags to a mob
+     *
      * @param spawnEvent The spawn event of the creature to affect
      */
     public static void initialiseMob(CreatureSpawnEvent spawnEvent) {
@@ -61,7 +62,7 @@ public class MetaTags {
 
         if (entity.hasMetadata(mcMMO.entityMetadataKey)) {
 
-           return entity.getMetadata(mcMMO.entityMetadataKey).get(0).asBoolean();
+            return entity.getMetadata(mcMMO.entityMetadataKey).get(0).asBoolean();
 
         }
 
@@ -82,10 +83,9 @@ public class MetaTags {
         if (entity.hasMetadata(QUANTITY)) {
 
 
-
             try {
                 return entity.getMetadata(QUANTITY).get(0).asInt();
-            } catch (IndexOutOfBoundsException e){
+            } catch (IndexOutOfBoundsException e) {
 
                 MobStacker2.log("There was a problem getting an entities quantity");
                 return -1;
@@ -109,7 +109,7 @@ public class MetaTags {
 
         try {
             return entity.getMetadata(SPAWN_REASON).get(0).asString();
-        } catch (IndexOutOfBoundsException e){
+        } catch (IndexOutOfBoundsException e) {
 
             MobStacker2.log("There was a problem getting an entities spawn reason");
             return "ERROR";

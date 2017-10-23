@@ -1,11 +1,7 @@
 package com.kiwifisher.mobstacker2.listeners;
 
-import com.kiwifisher.mobstacker2.MobStacker2;
-import com.kiwifisher.mobstacker2.io.Settings;
 import com.kiwifisher.mobstacker2.metadata.MetaTags;
 import com.kiwifisher.mobstacker2.util.Util;
-import org.bukkit.entity.Entity;
-import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Sheep;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -43,7 +39,6 @@ public class SheepDyeListener implements Listener {
             sheep.setColor(event.getColor());
             MetaTags.setStacking(sheep, true);
             //MobStacker2.broadcast("QTY: " + MetaTags.getQuantity(dyedSheep) + ", Colour: " + event.getColor());
-
 
 
         } else if (MetaTags.hasMetaData(sheep)) {

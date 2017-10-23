@@ -4,18 +4,13 @@ import com.kiwifisher.mobstacker2.MobStacker2;
 import com.kiwifisher.mobstacker2.io.Settings;
 import com.kiwifisher.mobstacker2.metadata.MetaTags;
 import com.kiwifisher.mobstacker2.util.Util;
-import net.elseland.xikage.MythicMobs.API.Bukkit.Events.MythicMobSpawnEvent;
-import net.elseland.xikage.MythicMobs.Mobs.ActiveMobHandler;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.event.EventHandler;
-import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.CreatureSpawnEvent;
 import org.bukkit.scheduler.BukkitRunnable;
-
-import java.util.Set;
 
 public class MobSpawnListener implements Listener {
 
@@ -59,7 +54,7 @@ public class MobSpawnListener implements Listener {
 
                     }
 
-                    if (count == 0 && entity.getType() == EntityType.MUSHROOM_COW){
+                    if (count == 0 && entity.getType() == EntityType.MUSHROOM_COW) {
                         for (Entity ent : entity.getNearbyEntities(0.2, 0.2, 0.2)) {
 
                             if (!(ent instanceof LivingEntity)) return;

@@ -1,6 +1,5 @@
 package com.kiwifisher.mobstacker2.loot.creatures;
 
-import com.kiwifisher.mobstacker2.MobStacker2;
 import com.kiwifisher.mobstacker2.loot.Loot;
 import com.kiwifisher.mobstacker2.loot.LootAlgorithm;
 import com.kiwifisher.mobstacker2.loot.RareLoot;
@@ -8,16 +7,13 @@ import com.kiwifisher.mobstacker2.loot.UncommonLoot;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.entity.Entity;
-import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Skeleton;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.PotionMeta;
 import org.bukkit.potion.PotionData;
 import org.bukkit.potion.PotionType;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 public class SkeletonLootAlgorithm extends LootAlgorithm {
 
@@ -25,7 +21,7 @@ public class SkeletonLootAlgorithm extends LootAlgorithm {
 
     public SkeletonLootAlgorithm() {
         this.getLootArray().add(new Loot(Material.BONE, 0, 2));
-        this.getLootArray().add(new Loot(Material.ARROW, 0, 2){
+        this.getLootArray().add(new Loot(Material.ARROW, 0, 2) {
 
             @Override
             public Material getMaterial(Entity entity) {

@@ -1,9 +1,7 @@
 package com.kiwifisher.mobstacker2;
 
-import com.gmail.nossr50.api.ExperienceAPI;
 import com.google.common.io.ByteStreams;
 import com.kiwifisher.mobstacker2.commands.Commands;
-import com.kiwifisher.mobstacker2.commands.permissions.Permissions;
 import com.kiwifisher.mobstacker2.io.Settings;
 import com.kiwifisher.mobstacker2.listeners.*;
 import com.kiwifisher.mobstacker2.util.Util;
@@ -15,6 +13,7 @@ import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
+
 import java.io.*;
 import java.util.ArrayList;
 import java.util.UUID;
@@ -22,18 +21,55 @@ import java.util.logging.Logger;
 
 public class MobStacker2 extends JavaPlugin {
 
-    private static Plugin plugin;
-    private static Logger logger;
     public final static String RELOAD_UUID = UUID.randomUUID().toString().replaceAll("-", "").substring(0, 12);
     public static String LAST_UUID;
-    private final YamlConfiguration uuidYaml = new YamlConfiguration();
     public static boolean IS_STACKING = true;
     public static ArrayList<Chunk> BLACKLISTED_CHUNKS;
     public static WorldGuardPlugin worldGuardPlugin;
     public static com.gmail.nossr50.mcMMO mcMMOPlugin;
+    public static boolean DEBUG = false;
+    private static Plugin plugin;
+    private static Logger logger;
     private static boolean usesMythicMobs;
     private static boolean usesClearLag;
-    public static boolean DEBUG = false;
+    private final YamlConfiguration uuidYaml = new YamlConfiguration();
+
+    public static boolean usesWG() {
+        return worldGuardPlugin != null;
+    }
+
+    public static boolean usesMcMMO() {
+        return mcMMOPlugin != null;
+    }
+
+    public static boolean usesMythicMobs() {
+        return usesMythicMobs;
+    }
+
+    public static void log(String info) {
+        logger.info(info);
+    }
+
+    public static void broadcast(String message) {
+        Bukkit.broadcastMessage(message);
+    }
+
+    public static void debug(String message) {
+
+        if (DEBUG) {
+
+            Player kiwi = getPlugin().getServer().getPlayer("KiwiFisher");
+            if (kiwi != null) {
+                kiwi.sendMessage(message);
+            }
+
+        }
+
+    }
+
+    public static Plugin getPlugin() {
+        return plugin;
+    }
 
     @Override
     public void onEnable() {
@@ -86,16 +122,6 @@ public class MobStacker2 extends JavaPlugin {
         }
 
     }
-
-    public static boolean usesWG() {
-        return worldGuardPlugin != null;
-    }
-
-    public static boolean usesMcMMO() {
-        return mcMMOPlugin != null;
-    }
-
-    public static boolean usesMythicMobs() { return usesMythicMobs; }
 
     private com.gmail.nossr50.mcMMO getMcMMOPlugin() {
 
@@ -153,27 +179,6 @@ public class MobStacker2 extends JavaPlugin {
 
     }
 
-    public static void log(String info) {
-        logger.info(info);
-    }
-
-    public static void broadcast(String message) {
-        Bukkit.broadcastMessage(message);
-    }
-
-    public static void debug(String message) {
-
-        if (DEBUG) {
-
-            Player kiwi = getPlugin().getServer().getPlayer("KiwiFisher");
-            if (kiwi != null) {
-                kiwi.sendMessage(message);
-            }
-
-        }
-
-    }
-
     public void loadFiles() {
 
         loadResource(this, "config.yml");
@@ -214,9 +219,5 @@ public class MobStacker2 extends JavaPlugin {
         }
 
         return resourceFile;
-    }
-
-    public static Plugin getPlugin() {
-        return plugin;
     }
 }

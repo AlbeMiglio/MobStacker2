@@ -6,12 +6,9 @@ import com.kiwifisher.mobstacker2.loot.RareLoot;
 import org.bukkit.Material;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Guardian;
-import org.bukkit.entity.LivingEntity;
 import org.bukkit.inventory.ItemStack;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class GuardianLootAlgorithm extends LootAlgorithm {

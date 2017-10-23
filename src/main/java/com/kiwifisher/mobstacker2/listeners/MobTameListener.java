@@ -1,9 +1,7 @@
 package com.kiwifisher.mobstacker2.listeners;
 
-import com.kiwifisher.mobstacker2.metadata.MetaTags;
 import com.kiwifisher.mobstacker2.util.Util;
 import org.bukkit.entity.LivingEntity;
-import org.bukkit.entity.Sheep;
 import org.bukkit.entity.Tameable;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;

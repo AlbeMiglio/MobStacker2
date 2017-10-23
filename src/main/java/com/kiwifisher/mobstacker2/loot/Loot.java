@@ -2,7 +2,6 @@ package com.kiwifisher.mobstacker2.loot;
 
 import org.bukkit.Material;
 import org.bukkit.entity.Entity;
-import org.bukkit.entity.LivingEntity;
 
 public class Loot {
 

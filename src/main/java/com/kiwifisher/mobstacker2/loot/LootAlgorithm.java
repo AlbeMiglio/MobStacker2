@@ -1,15 +1,12 @@
 package com.kiwifisher.mobstacker2.loot;
 
-import com.kiwifisher.mobstacker2.MobStacker2;
 import com.kiwifisher.mobstacker2.io.Settings;
 import org.bukkit.Material;
 import org.bukkit.entity.Entity;
-import org.bukkit.entity.LivingEntity;
 import org.bukkit.inventory.ItemStack;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
 /**
@@ -34,7 +31,7 @@ public abstract class LootAlgorithm {
     /**
      * Gets the quantity of experience to drop for a number of entities.
      *
-     * @param entity the Entity killed
+     * @param entity       the Entity killed
      * @param numberOfMobs the number of mobs
      * @return the quantity of experience
      */
@@ -43,10 +40,10 @@ public abstract class LootAlgorithm {
     /**
      * Gets a list of items to drop when an entity is killed.
      *
-     * @param entity the Entity killed
+     * @param entity       the Entity killed
      * @param numberOfMobs the number of entities in the stack
-     * @param playerKill true if killed by a player
-     * @param looting the looting level of the player's weapon
+     * @param playerKill   true if killed by a player
+     * @param looting      the looting level of the player's weapon
      * @return the items to drop
      */
     public List<ItemStack> getRandomLoot(Entity entity, int numberOfMobs, boolean playerKill, int looting) {

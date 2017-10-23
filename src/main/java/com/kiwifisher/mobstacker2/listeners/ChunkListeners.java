@@ -8,8 +8,6 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.world.ChunkLoadEvent;
 import org.bukkit.event.world.ChunkUnloadEvent;
 
-import java.util.List;
-
 public class ChunkListeners implements Listener {
 
     @EventHandler

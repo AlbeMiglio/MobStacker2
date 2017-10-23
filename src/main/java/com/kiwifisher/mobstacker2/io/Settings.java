@@ -3,16 +3,18 @@ package com.kiwifisher.mobstacker2.io;
 import com.kiwifisher.mobstacker2.MobStacker2;
 import org.bukkit.configuration.file.FileConfiguration;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Set;
 
 public class Settings {
 
+    public static ArrayList<String> BLACKLISTED_REGIONS = getBlackRegions();
     private static FileConfiguration config = MobStacker2.getPlugin().getConfig();
-
     public static String NAME_TEMPLATE = config.getString("stack-naming");
     public static int X_RANGE = config.getInt("stack-range.x");
     public static int Y_RANGE = config.getInt("stack-range.y");
@@ -46,7 +48,6 @@ public class Settings {
     public static List<String> SPAWN_TYPES = getSpawnReasons();
     public static HashMap<String, Integer> MAX_PER_CHUNK = getMaxPerChunk();
     public static boolean STACK_THROUGH_WALLS = config.getBoolean("stack-through-walls");
-    public static ArrayList<String> BLACKLISTED_REGIONS = getBlackRegions();
     public static boolean FULL_STACK_LOOTING = config.getBoolean("kill-whole-stack-on-death.looting");
     public static boolean CLEAR_LAG = config.getBoolean("clear-lag");
 
@@ -63,10 +64,10 @@ public class Settings {
 
             String currentLine;
 
-            while((currentLine = reader.readLine()) != null) {
+            while ((currentLine = reader.readLine()) != null) {
                 String trimmedLine = currentLine.trim();
                 blackRegions.add(trimmedLine);
-                }
+            }
 
         } catch (IOException ignored) {
         }

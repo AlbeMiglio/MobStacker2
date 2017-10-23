@@ -1,6 +1,5 @@
 package com.kiwifisher.mobstacker2.loot;
 
-import com.kiwifisher.mobstacker2.loot.Loot;
 import org.bukkit.Material;
 import org.bukkit.entity.Entity;
 

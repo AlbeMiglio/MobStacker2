@@ -12,8 +12,6 @@ import org.bukkit.World;
 import org.bukkit.entity.*;
 import org.bukkit.event.entity.CreatureSpawnEvent;
 import org.bukkit.material.Colorable;
-import org.bukkit.material.Mushroom;
-import org.bukkit.scheduler.BukkitRunnable;
 
 import java.util.List;
 
@@ -62,31 +60,37 @@ public class Util {
         }
 
 
-        if (MobStacker2.BLACKLISTED_CHUNKS.contains(spawnedEntity.getLocation().getChunk()) || MobStacker2.BLACKLISTED_CHUNKS.contains(existingEntity.getLocation().getChunk())) return false;
+        if (MobStacker2.BLACKLISTED_CHUNKS.contains(spawnedEntity.getLocation().getChunk()) || MobStacker2.BLACKLISTED_CHUNKS.contains(existingEntity.getLocation().getChunk()))
+            return false;
 
         if (spawnedEntity.getType() != existingEntity.getType()) return false;
 
-        if (Settings.STACK_BY_AGE && spawnedEntity instanceof Ageable && ((Ageable) spawnedEntity).isAdult() != ((Ageable) existingEntity).isAdult()) return false;
+        if (Settings.STACK_BY_AGE && spawnedEntity instanceof Ageable && ((Ageable) spawnedEntity).isAdult() != ((Ageable) existingEntity).isAdult())
+            return false;
 
         if (spawnedEntity == existingEntity) return false;
 
         if (spawnedEntity.isDead() || existingEntity.isDead()) return false;
 
-        if (spawnedEntity instanceof Slime && ((Slime) spawnedEntity).getSize() != ((Slime) existingEntity).getSize()) return false;
+        if (spawnedEntity instanceof Slime && ((Slime) spawnedEntity).getSize() != ((Slime) existingEntity).getSize())
+            return false;
 
         if (!(MetaTags.isStacking(existingEntity) && MetaTags.isStacking(spawnedEntity))) return false;
 
         if (!Settings.STACK_LEASHED_ANIMALS && (spawnedEntity.isLeashed() || existingEntity.isLeashed())) return false;
 
-        if (Settings.PROTECT_TAMED_PETS && spawnedEntity instanceof Tameable && (((Tameable) spawnedEntity).isTamed() || ((Tameable) existingEntity).isTamed())) return false;
+        if (Settings.PROTECT_TAMED_PETS && spawnedEntity instanceof Tameable && (((Tameable) spawnedEntity).isTamed() || ((Tameable) existingEntity).isTamed()))
+            return false;
 
-        if (Settings.SEPARATE_BY_COLOUR && spawnedEntity instanceof Colorable && (((Colorable) spawnedEntity).getColor() != ((Colorable) existingEntity).getColor())) return false;
+        if (Settings.SEPARATE_BY_COLOUR && spawnedEntity instanceof Colorable && (((Colorable) spawnedEntity).getColor() != ((Colorable) existingEntity).getColor()))
+            return false;
 
-        if (Settings.SEPARATE_BY_SHEARED && spawnedEntity instanceof Sheep && (((Sheep) spawnedEntity).isSheared() != ((Sheep) existingEntity).isSheared())) return false;
+        if (Settings.SEPARATE_BY_SHEARED && spawnedEntity instanceof Sheep && (((Sheep) spawnedEntity).isSheared() != ((Sheep) existingEntity).isSheared()))
+            return false;
 
         if (Settings.MAX_STACK_MOBS.containsKey(spawnedEntity.getType().name()) &&
                 (Settings.MAX_STACK_MOBS.get(spawnedEntity.getType().name()) == (MetaTags.getQuantity(spawnedEntity)) ||
-                Settings.MAX_STACK_MOBS.get(spawnedEntity.getType().name()) == (MetaTags.getQuantity(existingEntity)))) {
+                        Settings.MAX_STACK_MOBS.get(spawnedEntity.getType().name()) == (MetaTags.getQuantity(existingEntity)))) {
 
             return false;
 
@@ -122,7 +126,9 @@ public class Util {
 
     }
 
-    public static boolean tryStack(CreatureSpawnEvent event) {return event.getEntity() != null && tryStack(event.getEntity());}
+    public static boolean tryStack(CreatureSpawnEvent event) {
+        return event.getEntity() != null && tryStack(event.getEntity());
+    }
 
     public static boolean tryStack(LivingEntity entity) {
 
@@ -163,6 +169,7 @@ public class Util {
 
     /**
      * This method assumes all checks have been done prior so there is no exception handling here.
+     *
      * @param dyingEntity
      * @param growingEntity
      */
@@ -291,7 +298,6 @@ public class Util {
     }
 
     /**
-     *
      * @param entity
      * @param forceSpawnAgain Even if there is only one left and no point in peeling, should we respawn the entity?
      * @return
@@ -417,7 +423,8 @@ public class Util {
      */
     public static boolean isMythicMob(LivingEntity entity) {
 
-        if (MobStacker2.usesMythicMobs() && MetaTags.hasMetaData(entity) && !MetaTags.getSpawnReason(entity).equals("MYTHIC_MOBS")) return false;
+        if (MobStacker2.usesMythicMobs() && MetaTags.hasMetaData(entity) && !MetaTags.getSpawnReason(entity).equals("MYTHIC_MOBS"))
+            return false;
 
 
         /*

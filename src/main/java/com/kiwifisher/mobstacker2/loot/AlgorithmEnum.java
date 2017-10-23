@@ -15,7 +15,7 @@ public enum AlgorithmEnum {
     GHAST(new GhastLootAlgorithm()),
     // Giants always drop 5 experience.
     GIANT(new ExperienceLootAlgorithm(5, 5)),
-    GUARDIAN (new GuardianLootAlgorithm()),
+    GUARDIAN(new GuardianLootAlgorithm()),
     HORSE(new HorseLootAlgorithm()),
     IRON_GOLEM(new IronGolemLootAlgorithm()),
     MAGMA_CUBE(new MagmaCubeLootAlgorithm()),
@@ -23,7 +23,7 @@ public enum AlgorithmEnum {
     MUSHROOM_COW(COW.lootAlgorithm),
     // Ocelots have no drops, the animal algorithm base works.
     OCELOT(new AnimalLootAlgorithm()),
-    PIG (new PigLootAlgorithm()),
+    PIG(new PigLootAlgorithm()),
     PIG_ZOMBIE(new PigZombieLootAlgorithm()),
     POLAR_BEAR(new PolarBearLootAlgorithm()),
     RABBIT(new RabbitLootAlgorithm()),

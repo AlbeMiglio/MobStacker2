@@ -17,9 +17,12 @@ public class UncommonLoot extends Loot {
 
         switch (looting) {
 
-            case 1: return 0.5;
-            case 2: return 0.66;
-            case 3: return 0.75;
+            case 1:
+                return 0.5;
+            case 2:
+                return 0.66;
+            case 3:
+                return 0.75;
 
         }
 

@@ -17,7 +17,7 @@ import java.util.List;
 public class MagmaCubeLootAlgorithm extends SlimeLootAlgorithm {
 
     public MagmaCubeLootAlgorithm() {
-        this.getLootArray().add(new Loot(Material.MAGMA_CREAM, 1, 1.0/4));
+        this.getLootArray().add(new Loot(Material.MAGMA_CREAM, 1, 1.0 / 4));
     }
 
     @Override

@@ -6,18 +6,12 @@ import com.kiwifisher.mobstacker2.io.Settings;
 import com.kiwifisher.mobstacker2.metadata.MetaTags;
 import com.kiwifisher.mobstacker2.util.Util;
 import org.bukkit.ChatColor;
-import org.bukkit.Material;
-import org.bukkit.block.Block;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.ConsoleCommandSender;
-import org.bukkit.entity.Entity;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
-import org.bukkit.permissions.Permission;
-
-import java.util.Set;
 
 public class Commands implements CommandExecutor {
     @Override
@@ -98,7 +92,7 @@ public class Commands implements CommandExecutor {
                         return true;
                     }
 
-                    player.sendMessage(ChatColor.YELLOW + "Mob stacking is now " + (toggleStacking() ? ChatColor.GREEN + "enabled" : ChatColor.RED + "disabled" ));
+                    player.sendMessage(ChatColor.YELLOW + "Mob stacking is now " + (toggleStacking() ? ChatColor.GREEN + "enabled" : ChatColor.RED + "disabled"));
                     return true;
 
                 } else if (args.length == 1 && args[0].equalsIgnoreCase("trystack")) {
@@ -143,7 +137,8 @@ public class Commands implements CommandExecutor {
                                 ChatColor.RED + "Region \"" + regionID + "\"" + " doesn't exist or is already blacklisted!"));
                         return true;
 
-                    } if (args[1].equalsIgnoreCase("remove")) {
+                    }
+                    if (args[1].equalsIgnoreCase("remove")) {
 
                         if (!player.hasPermission(Permissions.REMOVE_REGION)) {
                             player.sendMessage(ChatColor.RED + "You don't have access to that command");
@@ -168,14 +163,22 @@ public class Commands implements CommandExecutor {
                     String helpString = "";
 
                     helpString += ChatColor.YELLOW + "Aliases: " + ChatColor.GREEN + "mobstacker, mstacker, ms" + "\n";
-                    if (player.hasPermission(Permissions.TOGGLE_STACKING)) helpString += ChatColor.YELLOW + "Toggle: " + ChatColor.GREEN + "/mobstacker toggle" + "\n";
-                    if (player.hasPermission(Permissions.RELOAD)) helpString += ChatColor.YELLOW + "Reload: " + ChatColor.GREEN + "/mobstacker reload" + "\n";
-                    if (player.hasPermission(Permissions.INSPECT)) helpString += ChatColor.YELLOW + "Inspect: " + ChatColor.GREEN + "/mobstacker inspect" + "\n";
-                    if (player.hasPermission(Permissions.CAN_STACK)) helpString += ChatColor.YELLOW + "Stacking: " + ChatColor.GREEN + "/mobstacker stacking <true || false>" + "\n";
-                    if (player.hasPermission(Permissions.SET_QUANTITY)) helpString += ChatColor.YELLOW + "Quantity: " + ChatColor.GREEN + "/mobstacker quantity <qty>" + "\n";
-                    if (player.hasPermission(Permissions.CLEAR)) helpString += ChatColor.YELLOW + "Clear: " + ChatColor.GREEN + "/mobstacker clear" + "\n";
-                    if (player.hasPermission(Permissions.TRY_STACK)) helpString += ChatColor.YELLOW + "Try Stack Again: " + ChatColor.GREEN + "/mobstacker trystack" + "\n";
-                    if (MobStacker2.usesWG()) helpString += ChatColor.YELLOW + "Regions: " + ChatColor.GREEN + "/mobstacker region <add || remove> <regionName>" + "\n";
+                    if (player.hasPermission(Permissions.TOGGLE_STACKING))
+                        helpString += ChatColor.YELLOW + "Toggle: " + ChatColor.GREEN + "/mobstacker toggle" + "\n";
+                    if (player.hasPermission(Permissions.RELOAD))
+                        helpString += ChatColor.YELLOW + "Reload: " + ChatColor.GREEN + "/mobstacker reload" + "\n";
+                    if (player.hasPermission(Permissions.INSPECT))
+                        helpString += ChatColor.YELLOW + "Inspect: " + ChatColor.GREEN + "/mobstacker inspect" + "\n";
+                    if (player.hasPermission(Permissions.CAN_STACK))
+                        helpString += ChatColor.YELLOW + "Stacking: " + ChatColor.GREEN + "/mobstacker stacking <true || false>" + "\n";
+                    if (player.hasPermission(Permissions.SET_QUANTITY))
+                        helpString += ChatColor.YELLOW + "Quantity: " + ChatColor.GREEN + "/mobstacker quantity <qty>" + "\n";
+                    if (player.hasPermission(Permissions.CLEAR))
+                        helpString += ChatColor.YELLOW + "Clear: " + ChatColor.GREEN + "/mobstacker clear" + "\n";
+                    if (player.hasPermission(Permissions.TRY_STACK))
+                        helpString += ChatColor.YELLOW + "Try Stack Again: " + ChatColor.GREEN + "/mobstacker trystack" + "\n";
+                    if (MobStacker2.usesWG())
+                        helpString += ChatColor.YELLOW + "Regions: " + ChatColor.GREEN + "/mobstacker region <add || remove> <regionName>" + "\n";
 
                     player.sendMessage(helpString);
                     return true;
@@ -203,7 +206,7 @@ public class Commands implements CommandExecutor {
                     String percentString = String.format("%.02f", percentSaving) + "%";
 
                     player.sendMessage(ChatColor.YELLOW + "Stacks: " + ChatColor.GREEN + stacks +
-                            ChatColor.YELLOW + "\nMobs in stacks: " + ChatColor.GREEN +  mobCount +
+                            ChatColor.YELLOW + "\nMobs in stacks: " + ChatColor.GREEN + mobCount +
                             ChatColor.YELLOW + " \nEntity savings: " + ChatColor.GREEN + percentString);
 
                     return true;
@@ -211,7 +214,6 @@ public class Commands implements CommandExecutor {
                 }
 
             }
-
 
 
         } else if (commandSender instanceof ConsoleCommandSender) {
@@ -225,7 +227,7 @@ public class Commands implements CommandExecutor {
 
                 } else if (args.length == 1 && args[0].equalsIgnoreCase("toggle")) {
 
-                    MobStacker2.log("Mob stacking is now " + (toggleStacking() ? "enabled" : "disabled" ));
+                    MobStacker2.log("Mob stacking is now " + (toggleStacking() ? "enabled" : "disabled"));
                     return true;
 
 

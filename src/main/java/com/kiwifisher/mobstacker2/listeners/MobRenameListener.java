@@ -1,6 +1,5 @@
 package com.kiwifisher.mobstacker2.listeners;
 
-import com.kiwifisher.mobstacker2.MobStacker2;
 import com.kiwifisher.mobstacker2.io.Settings;
 import com.kiwifisher.mobstacker2.metadata.MetaTags;
 import org.bukkit.Material;
@@ -9,8 +8,6 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerInteractEntityEvent;
 import org.bukkit.inventory.ItemStack;
-
-import java.util.Set;
 
 public class MobRenameListener implements Listener {
 
@@ -23,7 +20,8 @@ public class MobRenameListener implements Listener {
         if (event.getPlayer().getItemInHand().getType() == Material.NAME_TAG
                 && event.getRightClicked() instanceof LivingEntity) {
 
-            LivingEntity entity = (LivingEntity) event.getRightClicked();;
+            LivingEntity entity = (LivingEntity) event.getRightClicked();
+            ;
 
             /*
             Initialised blank name tag to get default name if it changes in future updates.
