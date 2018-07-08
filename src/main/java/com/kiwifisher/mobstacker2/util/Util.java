@@ -6,7 +6,7 @@ import com.kiwifisher.mobstacker2.metadata.MetaTags;
 import com.sk89q.worldguard.protection.ApplicableRegionSet;
 import com.sk89q.worldguard.protection.managers.RegionManager;
 import com.sk89q.worldguard.protection.regions.ProtectedRegion;
-import net.elseland.xikage.MythicMobs.Mobs.ActiveMobHandler;
+import io.lumine.xikage.mythicmobs.MythicMobs;
 import org.bukkit.Chunk;
 import org.bukkit.World;
 import org.bukkit.entity.*;
@@ -17,11 +17,9 @@ import java.util.List;
 
 public class Util {
 
-    public static boolean canStack(LivingEntity spawnedEntity, LivingEntity existingEntity) {
+    static boolean canStack(LivingEntity spawnedEntity, LivingEntity existingEntity) {
 
         if (spawnedEntity == null || existingEntity == null) return false;
-
-        int count = 0;
 
         if (MobStacker2.usesWG()) {
 
@@ -167,12 +165,6 @@ public class Util {
 
     }
 
-    /**
-     * This method assumes all checks have been done prior so there is no exception handling here.
-     *
-     * @param dyingEntity
-     * @param growingEntity
-     */
     public static void stack(final LivingEntity dyingEntity, final LivingEntity growingEntity) {
 
         if (Settings.STACK_MOBS_DOWN && Settings.MOBS_TO_STACK_DOWN.contains(growingEntity.getType().name())) {
@@ -260,6 +252,7 @@ public class Util {
 
     }
 
+    @SuppressWarnings("deprecation")
     public static void carbonCopy(LivingEntity newEntity, LivingEntity masterEntity) {
 
         cloneAttributes(newEntity, masterEntity);
@@ -297,11 +290,6 @@ public class Util {
 
     }
 
-    /**
-     * @param entity
-     * @param forceSpawnAgain Even if there is only one left and no point in peeling, should we respawn the entity?
-     * @return
-     */
     public static LivingEntity peelAway(LivingEntity entity, boolean forceSpawnAgain) {
 
         if (entity instanceof Sheep || entity instanceof MushroomCow) {
@@ -430,10 +418,8 @@ public class Util {
         /*
         Only check the registry as a last resort bc it takes ages to update.
          */
-        if (ActiveMobHandler.getMythicMobInstance(entity) != null) {
-
+        if (MythicMobs.inst().getMobManager().getMythicMobInstance(entity) != null) {
             return true;
-
         }
 
         return false;

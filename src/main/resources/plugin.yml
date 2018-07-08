@@ -1,12 +1,10 @@
 name: MobStacker2
 author: KiwiFisher
-version: 1.4
+version: 1.5
 main: com.kiwifisher.mobstacker2.MobStacker2
 load: POSTWORLD
 softdepend: [WorldGuard, mcMMO, MythicMobs, ClearLag]
-
 description: A plugin that keeps stacks of mobs to lower the total entities in the server
-
 commands:
   mobstacker:
     description: Type "/mobstacker help" for command help
